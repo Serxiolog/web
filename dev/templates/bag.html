@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous">
+  </head>
+  <body>
+
+<div class="container py-3">
+  <header class="navbar navbar-light" style="background-color: #e3f2fd;">
+      <a class="navbar-brand" href="/main">Магазин</a>
+      <a class="navbar-brand" href="/checker">Оформить заказ</a>
+  </header>
+
+  <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+    <h1 class="display-4 fw-normal">Корзина</h1>
+  </div>
+  <main>
+        <div class="card mb-4 rounded-3 shadow-sm">
+          {% for items in data %}
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">{{items['price']}}$</h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <h4 class="my-0 fw-normal">{{items["name"]}}</h4>
+              <h5 class="my-0 fw-normal">{{items["count"]}} шт</h5>
+            </ul>
+            <form method="POST">
+              <input type="hidden" class="form-control" name="id" id="id" value="{{items['id']}}">
+             <button type="submit" class="w-100 btn btn-lg btn-primary" >Удалить</button>
+            </form>
+          </div>
+          {% endfor %}
+        </div>
+
+
+
+  </main>
+</div>
+  </body>
+</html>

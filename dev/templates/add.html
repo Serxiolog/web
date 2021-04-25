@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous">
+    <title>Добавление товара</title>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" href="/bag">Корзина</a>
+        <a class="navbar-brand" href="/main">Магазин</a>
+    </nav>
+</header>
+          <div class="card-header py-4">
+            <h4 class="my-0 fw-normal">Товар</h4>
+          </div>
+          <div class="card-body">
+            <form method="POST">
+                <input type="text" class="form-control" name="title" placeholder='Название товара' id="title">
+                <input type="text" class="form-control" name="price" placeholder='Цена товара' id="price">
+                <input type="text" class="form-control" name="password" placeholder='Секретный пароль' id="password">
+                <button class="btn btn-success" type="submit">Добавить товар</button>
+            </form>
+
+          </div>
+</body>
+</html>

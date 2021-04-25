@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous">
+
+  </head>
+  <body>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="check" viewBox="0 0 16 16">
+    <title>Check</title>
+    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+  </symbol>
+</svg>
+
+<div class="container py-3">
+  <header class="navbar navbar-light" style="background-color: #e3f2fd;">
+      <a class="navbar-brand" href="/add">Добавить товар</a>
+      <a class="navbar-brand" href="/bag">Корзина</a>
+  </header>
+
+  <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+    <h1 class="display-4 fw-normal">Товары</h1>
+  </div>
+
+
+  <main>
+    <div class="row row-cols-0 row-cols-md-3 mb-3 text-center">
+      {% for items in data %}
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm border-primary">
+          <div class="card-header py-3 text-white bg-primary border-primary">
+            <h4 class="my-0 fw-normal">{{items["name"]}}</h4>
+          </div>
+          <div class="card-body">
+            <form method="POST">
+             <h1 class="card-title pricing-card-title">{{items['price']}}$</h1>
+             <input type="text" class="form-control" name="count" placeholder='Количество товара' id="count">
+             <input type="hidden" class="form-control" name="id" id="id" value="{{items['id']}}">
+              <input type="hidden" class="form-control" name="name" id="name" value="{{items['name']}}">
+             <input type="hidden" class="form-control" name="price" id="price" value="{{items['price']}}">
+             <button class="w-100 btn btn-lg btn-primary" type="submit">В корзину</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </main>
+
+
+</div>
+
+
+
+  </body>
+</html>

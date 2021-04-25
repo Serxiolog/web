@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous">
+  </head>
+  <body class="bg-light">
+
+<div class="container">
+  <main>
+    <div class="py-5 text-center">
+            <h2>Проверьте заказ</h2>
+    </div>
+
+    <div class="row g-5">
+      <div class="col-md-5 col-lg-4 order-md-last">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-primary">Корзина</span>
+        </h4>
+        <ul class="list-group mb-3">
+          {% for items in data %}
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">{{items['name']}}</h6>
+              <small class="text-muted">{{items['count']}}</small>
+            </div>
+            <span class="text-muted">{{items['on']}}</span>
+          </li>
+          {% endfor %}
+          <li class="list-group-item d-flex justify-content-between">
+            <span>Итого</span>
+            <strong>{{add}}$</strong>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-7 col-lg-8">
+        <h4 class="mb-3">Оформление заказа</h4>
+        <form class="needs-validation" method="POST">
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <label for="firstName" class="form-label">Имя</label>
+              <input type="text" class="form-control" id="firstName" name="firstName" placeholder="" value="" required="">
+              <div class="invalid-feedback">
+                Имя обязательно.
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <label for="lastName" class="form-label">Фамилия</label>
+              <input type="text" class="form-control" id="lastName" name="lastName" placeholder="" value="" required="">
+              <div class="invalid-feedback">
+                Фамилия обязательна.
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="email" class="form-label">Почта</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" required="">
+              <div class="invalid-feedback">
+                Введите правильную почту.
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="address" class="form-label">Адрес</label>
+              <input type="text" class="form-control" id="address" name="address" placeholder="ул.Отрадная 89" required="">
+              <div class="invalid-feedback">
+                Введите ваш адрес.
+              </div>
+            </div>
+           </div>
+         <button class="w-100 btn btn-lg btn-primary" type="submit">Оформить заказ</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+
+</div>
+
+</body></html>
